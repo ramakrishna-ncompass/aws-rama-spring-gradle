@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: /
-    destination: /home/ec2-user/server
+    destination: /
 
 permissions:
   - object: /
@@ -13,18 +13,18 @@ permissions:
 
 hooks:
   BeforeInstall:
-    - location: /home/ec2-user/server_clear.sh
+    - location: server_clear.sh
       timeout: 300
       runas: ec2-user
   AfterInstall:
-    - location: /home/ec2-user/server_clear.sh
+    - location: server_clear.sh
       timeout: 300
       runas: ec2-user
   ApplicationStart:
-    - location: /home/ec2-user/server_start.sh
+    - location: server_start.sh
       timeout: 300
       runas: ec2-user
   ApplicationStop:
-    - location: /home/ec2-user/server_stop.sh
+    - location: server_stop.sh
       timeout: 300
       runas: ec2-user
